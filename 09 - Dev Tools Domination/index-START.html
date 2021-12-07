@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+      // Regular
 
-    // Regular
+      // Interpolated
 
-    // Interpolated
+      // Styled
 
-    // Styled
+      // warning!
+      console.warn("oh no!");
 
-    // warning!
+      // Error :|
+      console.error("whoops");
+      // Info
+      console.info("what is this?");
+      // Testing
+      console.assert(1 === 1, "this will appear if the first param is wrong");
+      // clearing
+      console.clear();
+      // Viewing DOM Elements
+      console.dir("element you want details on");
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.groupCollapsed(`this is ${dog.name}`);
+        console.log(`this dog is ${dog.age} years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+      // counting
+      console.count("Wes");
+      console.count("Wes");
+      console.count("Wes");
+      console.count("Wes");
+      // timing
+      console.time("fetching data");
+      setTimeout(() => {
+        console.log("hello!");
+      }, 5000);
+      console.timeEnd("fetching data");
+      //table
 
-    // Error :|
-
-    // Info
-
-    // Testing
-
-    // clearing
-
-    // Viewing DOM Elements
-
-    // Grouping together
-
-    // counting
-
-    // timing
-
-  </script>
-</body>
+      console.table(dogs);
+    </script>
+  </body>
 </html>
